@@ -11,7 +11,7 @@ class Pasajero:
         self.asiento = asiento            # str -> "03C"
 
     def es_mayor_de_edad(self):
-        return self.edad >= 18
+        return self.edad >= 21
 
     def __str__(self):
         return (f"#{self.numero} | {self.nombre:<8} | {self.cedula} | {self.edad:>2} años | "

@@ -74,7 +74,7 @@ class ListaPython:
         return True
 
     def ordenar_asc(self):
-        self.pasajeros.sort(key=lambda p: p.numero)
+        self.pasajeros.sort(key=lambda p: p.edad)
 
     def ordenar_desc(self):
         self.pasajeros.sort(key=lambda p: p.numero, reverse=True)
