@@ -103,7 +103,7 @@ class MiLista:
         n = self.cantidad
         for vuelta in range(n - 1):
             for i in range(n - 1 - vuelta):
-                if self.datos[i].edad > self.datos[i + 1].edad:
+                if self.datos[i].numero > self.datos[i + 1].numero:
                     aux = self.datos[i]                 # intercambio con
                     self.datos[i] = self.datos[i + 1]   # una variable
                     self.datos[i + 1] = aux
