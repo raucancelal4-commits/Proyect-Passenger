@@ -49,7 +49,7 @@ def mostrar_opciones(titulo, entrar, salir, ver):
 # ---------------------- MENÚ 1 · PILA ----------------------
 def menu_pila():
     while True:
-        mostrar_opciones("MENÚ 1 · PILA (LIFO)", "Apilar", "Desapilar", "Ver tope", "Buscar", "Modificar", "Eliminar", "Copiar", "Longitud", "Vacía")
+        mostrar_opciones("MENÚ 1 · PILA (LIFO)", "Apilar", "Desapilar", "Ver tope")
         op = input("Opción: ").strip().upper()
         if op == "1":                                  # ✅ ejemplo resuelto
             pasajero = leer_pasajero()                 # 1. LEER
@@ -61,11 +61,19 @@ def menu_pila():
             for p in datos_prueba():
                 pila.apilar(p)
             print("  ✓ Datos de prueba apilados")
-        elif op =="3":
-            pila.desapilar()
-            print("  ✓ Desapilado: el tope ha cambiado")
+        elif op == "3":
+            posicion = leer_entero("  Posición a desapilar: ")
+            desapilado = pila.desapilar(posicion)
+            if desapilado:
+                print(f"  ✓ Desapilado: {desapilado}")
+            else:
+                print("  ❌ No se pudo desapilar")
         elif op == "4":
-            pila.ver_tope()
+            tope = pila.ver_tope()
+            if tope:
+                print(f"  ✓ Tope: {tope}")
+            else:
+                print("  ❌ Pila vacía")
         elif op == "5":
             numero = leer_entero("  N.º de pasajero a buscar: ")
             pos = pila.buscar(numero)
@@ -97,7 +105,7 @@ def menu_pila():
             nueva.listar()
         elif op == "9":
             print(f"  ✓ Longitud: {pila.longitud()}")
-            print(f"  ✓ ¿Vacía?: {pila.vacia()}")
+            print(f"  ✓ ¿Vacía?: {pila.esta_vacia()}")
         elif op == "0":
             break
         else:
@@ -107,7 +115,7 @@ def menu_pila():
 # ---------------------- MENÚ 2 · COLA ----------------------
 def menu_cola():
     while True:
-        mostrar_opciones("MENÚ 2 · COLA (FIFO)", "Encolar", "Desencolar", "Ver frente")#, "Buscar", "Modificar", "Eliminar", "Copiar", "Longitud", "Vacía"
+        mostrar_opciones("MENÚ 2 · COLA (FIFO)", "Encolar", "Desencolar", "Ver frente")
         op = input("Opción: ").strip().upper()
 
         if op == "1":                                  # ✅ ejemplo resuelto
@@ -164,7 +172,7 @@ def menu_cola():
             nueva.listar()
         elif op == "9":
             print(f"  ✓ Longitud: {cola.longitud()}")
-            print(f"  ✓ ¿Vacía?: {cola.vacia()}")
+            print(f"  ✓ ¿Vacía?: {cola.esta_vacia()}")
         elif op == "0":
             break
         else:
