@@ -49,9 +49,8 @@ def mostrar_opciones(titulo, entrar, salir, ver):
 # ---------------------- MENÚ 1 · PILA ----------------------
 def menu_pila():
     while True:
-        mostrar_opciones("MENÚ 1 · PILA (LIFO)", "Apilar", "Desapilar", "Ver tope")
+        mostrar_opciones("MENÚ 1 · PILA (LIFO)", "Apilar", "Desapilar", "Ver tope", "Buscar", "Modificar", "Eliminar", "Copiar", "Longitud", "Vacía")
         op = input("Opción: ").strip().upper()
-
         if op == "1":                                  # ✅ ejemplo resuelto
             pasajero = leer_pasajero()                 # 1. LEER
             if pila.apilar(pasajero):                  # 2. LLAMAR
@@ -62,9 +61,43 @@ def menu_pila():
             for p in datos_prueba():
                 pila.apilar(p)
             print("  ✓ Datos de prueba apilados")
-
-        # ✍ TODO: opciones 3 a 9 con el patrón LEER → LLAMAR → MOSTRAR
-
+        elif op =="3":
+            pila.desapilar()
+            print("  ✓ Desapilado: el tope ha cambiado")
+        elif op == "4":
+            pila.ver_tope()
+        elif op == "5":
+            numero = leer_entero("  N.º de pasajero a buscar: ")
+            pos = pila.buscar(numero)
+            if pos == -1:
+                print("  ❌ No encontrado")
+            else:
+                print(f"  ✓ Encontrado en posición {pos}")
+        elif op == "6":
+            numero = leer_entero("  N.º de pasajero a modificar: ")
+            nuevo_destino = input("  Nuevo destino: ").strip()
+            nuevo_asiento = input("  Nuevo asiento: ").strip().upper()
+            if pila.modificar(numero, nuevo_destino, nuevo_asiento):
+                print("  ✓ Modificado")
+            else:
+                print("  ❌ No encontrado")
+        elif op == "7":
+            numero = leer_entero("  N.º de pasajero a eliminar: ")
+            eliminado = pila.eliminar_por_numero(numero)
+            if eliminado:
+                print(f"  ✓ Eliminado: {eliminado}")
+            else:
+                print("  ❌ No encontrado")
+        elif op == "8":
+            nueva = pila.copiar()
+            print("  ✓ Copiado: nueva pila creada")
+            print("  Pila original:")
+            pila.listar()
+            print("  Nueva pila:")
+            nueva.listar()
+        elif op == "9":
+            print(f"  ✓ Longitud: {pila.longitud()}")
+            print(f"  ✓ ¿Vacía?: {pila.vacia()}")
         elif op == "0":
             break
         else:
@@ -74,7 +107,7 @@ def menu_pila():
 # ---------------------- MENÚ 2 · COLA ----------------------
 def menu_cola():
     while True:
-        mostrar_opciones("MENÚ 2 · COLA (FIFO)", "Encolar", "Desencolar", "Ver frente")
+        mostrar_opciones("MENÚ 2 · COLA (FIFO)", "Encolar", "Desencolar", "Ver frente")#, "Buscar", "Modificar", "Eliminar", "Copiar", "Longitud", "Vacía"
         op = input("Opción: ").strip().upper()
 
         if op == "1":                                  # ✅ ejemplo resuelto
@@ -87,9 +120,51 @@ def menu_cola():
             for p in datos_prueba():
                 cola.encolar(p)
             print("  ✓ Datos de prueba encolados")
-
-        # ✍ TODO: opciones 3 a 9 con el patrón LEER → LLAMAR → MOSTRAR
-
+        elif op == "3":
+            posicion = leer_entero("  Posición a desencolar: ")
+            desencolado = cola.desencolar(posicion)
+            if desencolado:
+                print(f"  ✓ Desencolado: {desencolado}")
+            else:
+                print("  ❌ No se pudo desencolar")
+        elif op == "4":
+            frente = cola.ver_frente()
+            if frente:
+                print(f"  ✓ Frente: {frente}")
+            else:
+                print("  ❌ Cola vacía")
+        elif op == "5":
+            numero = leer_entero("  N.º de pasajero a buscar: ")
+            pos = cola.buscar(numero)
+            if pos == -1:
+                print("  ❌ No encontrado")
+            else:
+                print(f"  ✓ Encontrado en posición {pos}")
+        elif op == "6":
+            numero = leer_entero("  N.º de pasajero a modificar: ")
+            nuevo_destino = input("  Nuevo destino: ").strip()
+            nuevo_asiento = input("  Nuevo asiento: ").strip().upper()
+            if cola.modificar(numero, nuevo_destino, nuevo_asiento):
+                print("  ✓ Modificado")
+            else:
+                print("  ❌ No encontrado")
+        elif op == "7":
+            numero = leer_entero("  N.º de pasajero a eliminar: ")
+            eliminado = cola.eliminar_por_numero(numero)
+            if eliminado:
+                print(f"  ✓ Eliminado: {eliminado}")
+            else:
+                print("  ❌ No encontrado")
+        elif op == "8":
+            nueva = cola.copiar()
+            print("  ✓ Copiado: nueva cola creada")
+            print("  Cola original:")
+            cola.listar()
+            print("  Nueva cola:")
+            nueva.listar()
+        elif op == "9":
+            print(f"  ✓ Longitud: {cola.longitud()}")
+            print(f"  ✓ ¿Vacía?: {cola.vacia()}")
         elif op == "0":
             break
         else:

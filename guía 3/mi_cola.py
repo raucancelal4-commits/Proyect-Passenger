@@ -7,7 +7,7 @@ class MiCola:
     ⛔ Mismas prohibiciones que MiLista: sin append, pop, insert, remove, index,
        sort, reverse, copy, len(), in, slicing ni comprensiones.
     """
-
+    
     def __init__(self, capacidad=10):
         self.datos = [None] * capacidad
         self.capacidad = capacidad
@@ -87,44 +87,44 @@ class MiCola:
     def esta_vacia(self):
         return self.cantidad == 0
 
-cola = MiCola(5)
+# cola = MiCola(5)
 
-print("1) Encolar 4 pasajeros")
-cola.encolar(Pasajero(1002, "Ana", "0912345678", 28, "2026-11-15", "Lima", "A1"))
-cola.encolar(Pasajero(2003, "Luis", "0987654321", 35, "2026-11-16", "Quito", "B2"))
-cola.encolar(Pasajero(3004, "Marta", "0955555555", 42, "2026-11-17", "Guayaquil", "C3"))
-cola.encolar(Pasajero(4005, "Pedro", "0966666666", 30, "2026-11-18", "Cuenca", "D4"))
-cola.listar()
+# print("1) Encolar 4 pasajeros")
+# cola.encolar(Pasajero(1002, "Ana", "0912345678", 28, "2026-11-15", "Lima", "A1"))
+# cola.encolar(Pasajero(2003, "Luis", "0987654321", 35, "2026-11-16", "Quito", "B2"))
+# cola.encolar(Pasajero(3004, "Marta", "0955555555", 42, "2026-11-17", "Guayaquil", "C3"))
+# cola.encolar(Pasajero(4005, "Pedro", "0966666666", 30, "2026-11-18", "Cuenca", "D4"))
+# cola.listar()
 
-print("\n2) Ver tope:", cola.ver_frente())
-print("   Longitud:", cola.longitud(), "| ¿Vacía?:", cola.esta_vacia())
+# print("\n2) Ver tope:", cola.ver_frente())
+# print("   Longitud:", cola.longitud(), "| ¿Vacía?:", cola.esta_vacia())
 
-print("\n3) Buscar número 2 ->", cola.buscar(2), "| número 99 ->", cola.buscar(99))
+# print("\n3) Buscar número 2 ->", cola.buscar(2), "| número 99 ->", cola.buscar(99))
 
-print("\n4) Modificar pasajero 3")
-print("   Resultado:", cola.modificar(3, "Ambato", "Z9"))
-cola.listar()
+# print("\n4) Modificar pasajero 3")
+# print("   Resultado:", cola.modificar(3, "Ambato", "Z9"))
+# cola.listar()
 
-print("\n5) Eliminar por número")
-print("   Eliminado:", cola.eliminar_por_numero(2))
-print("   Eliminar 99 ->", cola.eliminar_por_numero(3004))
-print("   Eliminar 1002 ->", cola.eliminar_por_numero(4005))
-cola.listar()
+# print("\n5) Eliminar por número")
+# print("   Eliminado:", cola.eliminar_por_numero(2))
+# print("   Eliminar 99 ->", cola.eliminar_por_numero(3004))
+# print("   Eliminar 1002 ->", cola.eliminar_por_numero(4005))
+# cola.listar()
 
-print("\n6) Desencolar posición 2 (el frente)")
-print("   Salió:", cola.desencolar(2))
-print("   Posición 10 ->", cola.desencolar(10))
-cola.listar()
+# print("\n6) Desencolar posición 2 (el frente)")
+# print("   Salió:", cola.desencolar(2))
+# print("   Posición 10 ->", cola.desencolar(10))
+# cola.listar()
 
-print("\n7) Copiar la cola")
-copia = cola.copiar()
-print("   Original:", cola.longitud(), "elementos")
-print("   Copia:   ", copia.longitud(), "elementos")
-copia.listar()
+# print("\n7) Copiar la cola")
+# copia = cola.copiar()
+# print("   Original:", cola.longitud(), "elementos")
+# print("   Copia:   ", copia.longitud(), "elementos")
+# copia.listar()
 
-print("\n8) Llenar hasta el límite (capacidad 5)")
-cola.encolar(Pasajero(5006, "Sara", "0977777777", 25, "2026-11-19", "Manta", "E5"))
-cola.encolar(Pasajero(6006, "Juan", "0988888888", 40, "2026-11-20", "Ibarra", "F6"))
-cola.encolar(Pasajero(7007, "Rosa", "0999999999", 33, "2026-11-21", "Tulcán", "G7"))
-cola.encolar(Pasajero(8008, "Diego", "0900000000", 22, "2026-11-22", "Machala", "H8"))
-cola.listar()
+# print("\n8) Llenar hasta el límite (capacidad 5)")
+# cola.encolar(Pasajero(5006, "Sara", "0977777777", 25, "2026-11-19", "Manta", "E5"))
+# cola.encolar(Pasajero(6006, "Juan", "0988888888", 40, "2026-11-20", "Ibarra", "F6"))
+# cola.encolar(Pasajero(7007, "Rosa", "0999999999", 33, "2026-11-21", "Tulcán", "G7"))
+# cola.encolar(Pasajero(8008, "Diego", "0900000000", 22, "2026-11-22", "Machala", "H8"))
+# cola.listar()

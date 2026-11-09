@@ -1,5 +1,4 @@
 from pasajero import Pasajero
-
 class MiPila:
     """Pila (LIFO) hecha a mano sobre un arreglo de tamaño fijo.
     datos -> [fondo, ..., TOPE, None, None]
@@ -88,44 +87,44 @@ class MiPila:
         return self.cantidad == 0
 
 
-pila = MiPila(5)
+# pila = MiPila(5)
 
-print("1) Apilar 4 pasajeros")
-pila.apilar(Pasajero(1002, "Ana", "0912345678", 28, "2026-11-15", "Lima", "A1"))
-pila.apilar(Pasajero(2003, "Luis", "0987654321", 35, "2026-11-16", "Quito", "B2"))
-pila.apilar(Pasajero(3004, "Marta", "0955555555", 42, "2026-11-17", "Guayaquil", "C3"))
-pila.apilar(Pasajero(4005, "Pedro", "0966666666", 30, "2026-11-18", "Cuenca", "D4"))
-pila.listar()
+# print("1) Apilar 4 pasajeros")
+# pila.apilar(Pasajero(1002, "Ana", "0912345678", 28, "2026-11-15", "Lima", "A1"))
+# pila.apilar(Pasajero(2003, "Luis", "0987654321", 35, "2026-11-16", "Quito", "B2"))
+# pila.apilar(Pasajero(3004, "Marta", "0955555555", 42, "2026-11-17", "Guayaquil", "C3"))
+# pila.apilar(Pasajero(4005, "Pedro", "0966666666", 30, "2026-11-18", "Cuenca", "D4"))
+# pila.listar()
 
-print("\n2) Ver tope:", pila.ver_tope())
-print("   Longitud:", pila.longitud(), "| ¿Vacía?:", pila.esta_vacia())
+# print("\n2) Ver tope:", pila.ver_tope())
+# print("   Longitud:", pila.longitud(), "| ¿Vacía?:", pila.esta_vacia())
 
-print("\n3) Buscar número 2 ->", pila.buscar(2), "| número 99 ->", pila.buscar(99))
+# print("\n3) Buscar número 2 ->", pila.buscar(2), "| número 99 ->", pila.buscar(99))
 
-print("\n4) Modificar pasajero 3")
-print("   Resultado:", pila.modificar(3, "Ambato", "Z9"))
-pila.listar()
+# print("\n4) Modificar pasajero 3")
+# print("   Resultado:", pila.modificar(3, "Ambato", "Z9"))
+# pila.listar()
 
-print("\n5) Eliminar por número")
-print("   Eliminado:", pila.eliminar_por_numero(2))
-print("   Eliminar 99 ->", pila.eliminar_por_numero(99))
-print("   Eliminar 1002 ->", pila.eliminar_por_numero(1002))
-pila.listar()
+# print("\n5) Eliminar por número")
+# print("   Eliminado:", pila.eliminar_por_numero(2))
+# print("   Eliminar 99 ->", pila.eliminar_por_numero(99))
+# print("   Eliminar 1002 ->", pila.eliminar_por_numero(1002))
+# pila.listar()
 
-print("\n6) Desapilar posición 2 (el tope)")
-print("   Salió:", pila.desapilar(2))
-print("   Posición 10 ->", pila.desapilar(10))
-pila.listar()
+# print("\n6) Desapilar posición 2 (el tope)")
+# print("   Salió:", pila.desapilar(2))
+# print("   Posición 10 ->", pila.desapilar(10))
+# pila.listar()
 
-print("\n7) Copiar la pila")
-copia = pila.copiar()
-print("   Original:", pila.longitud(), "elementos")
-print("   Copia:   ", copia.longitud(), "elementos")
-copia.listar()
+# print("\n7) Copiar la pila")
+# copia = pila.copiar()
+# print("   Original:", pila.longitud(), "elementos")
+# print("   Copia:   ", copia.longitud(), "elementos")
+# copia.listar()
 
-print("\n8) Llenar hasta el límite (capacidad 5)")
-pila.apilar(Pasajero(5006, "Sara", "0977777777", 25, "2026-11-19", "Manta", "E5"))
-pila.apilar(Pasajero(6006, "Juan", "0988888888", 40, "2026-11-20", "Ibarra", "F6"))
-pila.apilar(Pasajero(7007, "Rosa", "0999999999", 33, "2026-11-21", "Tulcán", "G7"))
-pila.apilar(Pasajero(8008, "Diego", "0900000000", 22, "2026-11-22", "Machala", "H8"))
-pila.listar()
+# print("\n8) Llenar hasta el límite (capacidad 5)")
+# pila.apilar(Pasajero(5006, "Sara", "0977777777", 25, "2026-11-19", "Manta", "E5"))
+# pila.apilar(Pasajero(6006, "Juan", "0988888888", 40, "2026-11-20", "Ibarra", "F6"))
+# pila.apilar(Pasajero(7007, "Rosa", "0999999999", 33, "2026-11-21", "Tulcán", "G7"))
+# pila.apilar(Pasajero(8008, "Diego", "0900000000", 22, "2026-11-22", "Machala", "H8"))
+# pila.listar()
