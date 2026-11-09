@@ -81,6 +81,47 @@ class MiCola:
             nueva.encolar(self.datos[i])
         return nueva
 
+    def buscar_binaria(self, numero):             # requiere la lista ordenada
+        izq = 0
+        der = self.cantidad - 1
+        while izq <= der:
+            medio = (izq + der) // 2
+            if self.datos[medio].numero == numero:
+                return medio                      # lo encontré
+            elif self.datos[medio].numero < numero:
+                izq = medio + 1                   # está a la derecha
+            else:
+                der = medio - 1                   # está a la izquierda
+        return -1
+
+    def ordenar_asc(self):                        # burbuja por numero, menor a mayor
+        n = self.cantidad
+        for vuelta in range(n - 1):
+            for i in range(n - 1 - vuelta):
+                if self.datos[i].numero > self.datos[i + 1].numero:
+                    aux = self.datos[i]                 # intercambio con
+                    self.datos[i] = self.datos[i + 1]   # una variable
+                    self.datos[i + 1] = aux
+
+    def ordenar_desc(self):                       # la misma burbuja, cambia solo el símbolo
+        n = self.cantidad
+        for vuelta in range(n - 1):
+            for i in range(n - 1 - vuelta):
+                if self.datos[i].numero < self.datos[i + 1].numero:
+                    aux = self.datos[i]
+                    self.datos[i] = self.datos[i + 1]
+                    self.datos[i + 1] = aux
+                    
+    def reversar(self):
+        izq = 0
+        der = self.cantidad - 1
+        while izq < der:
+            aux = self.datos[izq]
+            self.datos[izq] = self.datos[der]
+            self.datos[der] = aux
+            izq = izq + 1
+            der = der - 1
+
     def longitud(self):
         return self.cantidad
 

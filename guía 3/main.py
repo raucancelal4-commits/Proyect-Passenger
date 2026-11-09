@@ -7,6 +7,9 @@ cola = MiCola(10)
 
 
 # ------------------------- funciones de apoyo ✅ -------------------------
+def pausa():
+    input("\n  Presiona ENTER para continuar...")
+
 def leer_entero(mensaje):
     while True:
         try:
@@ -37,12 +40,15 @@ def datos_prueba():
     ]
 
 
-def mostrar_opciones(titulo, entrar, salir, ver):
+def mostrar_opciones(titulo, entrar, salir, ver, extras=None):
     print(f"\n========== {titulo} ==========")
     print(f" 1. {entrar:<12}  2. Listar          3. {salir}")
     print(f" 4. {ver:<12}  5. Buscar          6. Modificar")
     print(" 7. Eliminar por número         8. Copiar")
     print(" 9. Longitud / ¿vacía?")
+    if extras:                       # solo se imprime si contienen mas elementos
+        for linea in extras:
+            print(f" {linea}")
     print(" C. Cargar datos de prueba      0. Volver")
 
 
@@ -55,12 +61,15 @@ def menu_pila():
             pasajero = leer_pasajero()                 # 1. LEER
             if pila.apilar(pasajero):                  # 2. LLAMAR
                 print("  ✓ Apilado: ahora es el tope") # 3. MOSTRAR
+            pausa()
         elif op == "2":
             pila.listar()
+            pausa()
         elif op == "C":
             for p in datos_prueba():
                 pila.apilar(p)
             print("  ✓ Datos de prueba apilados")
+            pausa()
         elif op == "3":
             posicion = leer_entero("  Posición a desapilar: ")
             desapilado = pila.desapilar(posicion)
@@ -68,12 +77,14 @@ def menu_pila():
                 print(f"  ✓ Desapilado: {desapilado}")
             else:
                 print("  ❌ No se pudo desapilar")
+            pausa()
         elif op == "4":
             tope = pila.ver_tope()
             if tope:
                 print(f"  ✓ Tope: {tope}")
             else:
                 print("  ❌ Pila vacía")
+            pausa()
         elif op == "5":
             numero = leer_entero("  N.º de pasajero a buscar: ")
             pos = pila.buscar(numero)
@@ -81,6 +92,7 @@ def menu_pila():
                 print("  ❌ No encontrado")
             else:
                 print(f"  ✓ Encontrado en posición {pos}")
+            pausa()
         elif op == "6":
             numero = leer_entero("  N.º de pasajero a modificar: ")
             nuevo_destino = input("  Nuevo destino: ").strip()
@@ -89,6 +101,7 @@ def menu_pila():
                 print("  ✓ Modificado")
             else:
                 print("  ❌ No encontrado")
+            pausa()
         elif op == "7":
             numero = leer_entero("  N.º de pasajero a eliminar: ")
             eliminado = pila.eliminar_por_numero(numero)
@@ -96,6 +109,7 @@ def menu_pila():
                 print(f"  ✓ Eliminado: {eliminado}")
             else:
                 print("  ❌ No encontrado")
+            pausa()
         elif op == "8":
             nueva = pila.copiar()
             print("  ✓ Copiado: nueva pila creada")
@@ -103,9 +117,11 @@ def menu_pila():
             pila.listar()
             print("  Nueva pila:")
             nueva.listar()
+            pausa()
         elif op == "9":
             print(f"  ✓ Longitud: {pila.longitud()}")
             print(f"  ✓ ¿Vacía?: {pila.esta_vacia()}")
+            pausa()
         elif op == "0":
             break
         else:
@@ -115,7 +131,7 @@ def menu_pila():
 # ---------------------- MENÚ 2 · COLA ----------------------
 def menu_cola():
     while True:
-        mostrar_opciones("MENÚ 2 · COLA (FIFO)", "Encolar", "Desencolar", "Ver frente")
+        mostrar_opciones("MENÚ 2 · COLA (FIFO)", "Encolar", "Desencolar", "Ver frente", extras=["10. Búsqueda binaria", "11. Ordenar ascendente", "12. Ordenar descendente", "13. Reversar"])
         op = input("Opción: ").strip().upper()
 
         if op == "1":                                  # ✅ ejemplo resuelto
@@ -124,10 +140,12 @@ def menu_cola():
                 print("  ✓ Encolado: está al final")   # 3. MOSTRAR
         elif op == "2":
             cola.listar()
+            pausa()
         elif op == "C":
             for p in datos_prueba():
                 cola.encolar(p)
             print("  ✓ Datos de prueba encolados")
+            pausa()
         elif op == "3":
             posicion = leer_entero("  Posición a desencolar: ")
             desencolado = cola.desencolar(posicion)
@@ -135,12 +153,14 @@ def menu_cola():
                 print(f"  ✓ Desencolado: {desencolado}")
             else:
                 print("  ❌ No se pudo desencolar")
+            pausa()
         elif op == "4":
             frente = cola.ver_frente()
             if frente:
                 print(f"  ✓ Frente: {frente}")
             else:
                 print("  ❌ Cola vacía")
+            pausa()
         elif op == "5":
             numero = leer_entero("  N.º de pasajero a buscar: ")
             pos = cola.buscar(numero)
@@ -148,6 +168,7 @@ def menu_cola():
                 print("  ❌ No encontrado")
             else:
                 print(f"  ✓ Encontrado en posición {pos}")
+            pausa()
         elif op == "6":
             numero = leer_entero("  N.º de pasajero a modificar: ")
             nuevo_destino = input("  Nuevo destino: ").strip()
@@ -156,13 +177,15 @@ def menu_cola():
                 print("  ✓ Modificado")
             else:
                 print("  ❌ No encontrado")
+            pausa()
         elif op == "7":
             numero = leer_entero("  N.º de pasajero a eliminar: ")
             eliminado = cola.eliminar_por_numero(numero)
             if eliminado:
                 print(f"  ✓ Eliminado: {eliminado}")
-            else:
+            else:   
                 print("  ❌ No encontrado")
+            pausa()
         elif op == "8":
             nueva = cola.copiar()
             print("  ✓ Copiado: nueva cola creada")
@@ -170,9 +193,45 @@ def menu_cola():
             cola.listar()
             print("  Nueva cola:")
             nueva.listar()
+            pausa()
         elif op == "9":
             print(f"  ✓ Longitud: {cola.longitud()}")
             print(f"  ✓ ¿Vacía?: {cola.esta_vacia()}")
+            pausa()
+        elif op == "10":
+            buscar_binaria = input("  ¿Desea buscar binariamente? (s/n): ").strip().lower()
+            if buscar_binaria == "s":
+                numero = leer_entero("  N.º de pasajero a buscar: ")
+                pos = cola.buscar_binaria(numero)
+                if pos == 0:
+                    print("  ❌ No encontrado")
+                else:
+                    print(f"  ✓ Encontrado en posición {pos}")
+            pausa()
+        elif op == "11":
+            ordenar_asc = input("  ¿Desea ordenar la cola por número de pasajero? (s/n): ").strip().lower()
+            if ordenar_asc == "s":
+                cola.ordenar_asc()
+                print("  ✓ Cola ordenada por número de pasajero")
+            else:
+                print("  ❌ No se ordenó la cola")
+            pausa()
+        elif op == "12":
+            ordenar_desc = input("  ¿Desea ordenar la cola por número de pasajero (descendente)? (s/n): ").strip().lower()
+            if ordenar_desc == "s":
+                cola.ordenar_desc()
+                print("  ✓ Cola ordenada por número de pasajero (descendente)")
+            else:
+                print("  ❌ No se ordenó la cola")
+            pausa()
+        elif op == "13":
+            reversar = input("  ¿Desea reversar la cola? (s/n): ").strip().lower()
+            if reversar == "s":
+                cola.reversar()
+                print("  ✓ Cola reversada")
+            else:
+                print("  ❌ No se reversó la cola")
+            pausa()
         elif op == "0":
             break
         else:
